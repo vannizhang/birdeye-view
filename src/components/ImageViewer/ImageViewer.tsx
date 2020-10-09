@@ -2,11 +2,14 @@ import React, {
     useState
 } from 'react';
 import BirdEyeViewImage from '../../statics/WhiteMountains_masked.jpg';
+import NorthArrowImageURL from '../../statics/North.png';
+
 import useWindowSize from '@rehooks/window-size';
 
 type RotationDirection = 'clockwise' | 'counterclockwise'
 
 const AspectRatio = .951;
+const NorthArrowSize = 75;
 
 const ImageViewer:React.FC= () => {
 
@@ -56,6 +59,7 @@ const ImageViewer:React.FC= () => {
                 rotateImage(direction)
             }}
         >
+
             <div
                 style={{
                     position: 'absolute',
@@ -70,6 +74,23 @@ const ImageViewer:React.FC= () => {
                     transform: `rotate(${rotationDeg}deg)`
                 }}
             ></div>
+
+            <div
+                style={{
+                    position: 'absolute',
+                    bottom: '80px',
+                    left: 'calc(50% - 37.5px)',
+                    transform: `rotate(${rotationDeg}deg)`,
+                    backgroundImage: `url(${NorthArrowImageURL})`,
+                    backgroundPositionX: 'center',
+                    backgroundPositionY: 'top',
+                    backgroundSize: `${NorthArrowSize}px ${NorthArrowSize}px`,
+                    width: NorthArrowSize,
+                    height: NorthArrowSize
+                }}
+            >
+            </div>
+
 
             {/* <img 
                 style={{
