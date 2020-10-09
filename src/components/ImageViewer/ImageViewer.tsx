@@ -21,8 +21,8 @@ const ImageViewer:React.FC= () => {
 
         setRotationDeg(currentDeg=>{
             let newVal = direction === 'clockwise' 
-                ? currentDeg + 1 
-                : currentDeg - 1;
+                ? currentDeg + 3 
+                : currentDeg - 3;
 
             if(newVal < 0 ){
                 newVal = 360;
