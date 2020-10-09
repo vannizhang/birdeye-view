@@ -82,39 +82,18 @@ const ImageViewer:React.FC= () => {
                     bottom: '100px',
                     left: `calc(50% - ${NorthArrowSize/2}px)`,
                     transform: 'scaleY(.5)',
-                    // transform: `rotate(${rotationDeg}deg)`,
-                    // backgroundImage: `url(${NorthArrowImageURL})`,
-                    // backgroundPositionX: 'center',
-                    // backgroundPositionY: 'top',
-                    // backgroundSize: `${NorthArrowSize}px ${NorthArrowSize}px`,
                     width: NorthArrowSize,
                     height: NorthArrowSize,
-                    // boxShadow: '1px 2px 10px #000'
                 }}
             >   
                 <img 
                     style={{
-                        transform: `rotate(${rotationDeg}deg)`,
-                        // objectFit: 'contain',
-                        // width: NorthArrowSize,
-                        // height: NorthArrowSize
+                        transform: `rotate(${rotationDeg}deg)`
                     }}
                     src={NorthArrowImageURL} 
                 />
             </div>
 
-
-            {/* <img 
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    transform: `rotate(${rotationDeg}deg)`,
-                    height: '200vh',
-                    width: `calc(200vh*.951)`
-                }}
-                src={BirdEyeViewImage} 
-            /> */}
         </div>
     )
 }
