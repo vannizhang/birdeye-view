@@ -79,7 +79,7 @@ const ImageViewer:React.FC= () => {
                 style={{
                     position: 'absolute',
                     bottom: '80px',
-                    left: 'calc(50% - 37.5px)',
+                    left: `calc(50% - ${NorthArrowSize/2}px)`,
                     transform: `rotate(${rotationDeg}deg)`,
                     backgroundImage: `url(${NorthArrowImageURL})`,
                     backgroundPositionX: 'center',
