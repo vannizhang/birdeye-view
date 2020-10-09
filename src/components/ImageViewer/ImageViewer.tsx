@@ -38,7 +38,7 @@ const ImageViewer:React.FC= () => {
     const getLeftPositon = ()=>{
         const { innerHeight, innerWidth } = windowSize;
 
-        const imageWidth = (innerHeight * 2)* AspectRatio;
+        const imageWidth = (innerHeight * 3.2)* AspectRatio;
 
         return (innerWidth - imageWidth) / 2;
     };
@@ -64,9 +64,10 @@ const ImageViewer:React.FC= () => {
                 style={{
                     position: 'absolute',
                     top: 0,
+                    marginTop: '-12%',
                     left: getLeftPositon(),
-                    height: '200vh',
-                    width: `calc(200vh*${AspectRatio})`,
+                    height: '320vh',
+                    width: `calc(320vh*${AspectRatio})`,
                     backgroundImage: `url(${BirdEyeViewImage})`,
                     backgroundPositionX: 'center',
                     backgroundPositionY: 'top',
@@ -78,17 +79,28 @@ const ImageViewer:React.FC= () => {
             <div
                 style={{
                     position: 'absolute',
-                    bottom: '80px',
+                    bottom: '100px',
                     left: `calc(50% - ${NorthArrowSize/2}px)`,
-                    transform: `rotate(${rotationDeg}deg)`,
-                    backgroundImage: `url(${NorthArrowImageURL})`,
-                    backgroundPositionX: 'center',
-                    backgroundPositionY: 'top',
-                    backgroundSize: `${NorthArrowSize}px ${NorthArrowSize}px`,
+                    transform: 'scaleY(.5)',
+                    // transform: `rotate(${rotationDeg}deg)`,
+                    // backgroundImage: `url(${NorthArrowImageURL})`,
+                    // backgroundPositionX: 'center',
+                    // backgroundPositionY: 'top',
+                    // backgroundSize: `${NorthArrowSize}px ${NorthArrowSize}px`,
                     width: NorthArrowSize,
-                    height: NorthArrowSize
+                    height: NorthArrowSize,
+                    // boxShadow: '1px 2px 10px #000'
                 }}
-            >
+            >   
+                <img 
+                    style={{
+                        transform: `rotate(${rotationDeg}deg)`,
+                        // objectFit: 'contain',
+                        // width: NorthArrowSize,
+                        // height: NorthArrowSize
+                    }}
+                    src={NorthArrowImageURL} 
+                />
             </div>
 
 
