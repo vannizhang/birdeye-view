@@ -57,6 +57,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@rehooks/window-size": "^1.0.2",
     "axios": "^0.19.2",
     "calcite-web": "github:Esri/calcite-web#v1.2.5",
     "classnames": "^2.2.6",

@@ -2,12 +2,17 @@ import React, {
     useState
 } from 'react';
 import BirdEyeViewImage from '../../statics/WhiteMountains_masked.jpg';
+import useWindowSize from '@rehooks/window-size';
 
 type RotationDirection = 'clockwise' | 'counterclockwise'
+
+const AspectRatio = .951;
 
 const ImageViewer:React.FC= () => {
 
     const [ rotationDeg, setRotationDeg ] = useState<number>(0);
+
+    const windowSize = useWindowSize();
 
     const rotateImage = (direction: RotationDirection)=>{
 
@@ -27,6 +32,14 @@ const ImageViewer:React.FC= () => {
         })
     }
 
+    const getLeftPositon = ()=>{
+        const { innerHeight, innerWidth } = windowSize;
+
+        const imageWidth = (innerHeight * 2)* AspectRatio;
+
+        return (innerWidth - imageWidth) / 2;
+    };
+
     return (
         <div
             style={{
@@ -36,20 +49,39 @@ const ImageViewer:React.FC= () => {
                 left: 0,
                 top: 0,
                 overflow: 'hidden',
-                // transform: `roatate(45deg)`
-                background: '#000'
+                background: 'rgb(253,234,202)'
             }}
             onWheel={(evt)=>{
                 const direction:RotationDirection = evt.deltaY < 0 ? 'counterclockwise' : 'clockwise';
                 rotateImage(direction)
             }}
         >
-            <img 
+            <div
                 style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: getLeftPositon(),
+                    height: '200vh',
+                    width: `calc(200vh*${AspectRatio})`,
+                    backgroundImage: `url(${BirdEyeViewImage})`,
+                    backgroundPositionX: 'center',
+                    backgroundPositionY: 'top',
+                    backgroundSize: 'cover',
                     transform: `rotate(${rotationDeg}deg)`
                 }}
+            ></div>
+
+            {/* <img 
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    transform: `rotate(${rotationDeg}deg)`,
+                    height: '200vh',
+                    width: `calc(200vh*.951)`
+                }}
                 src={BirdEyeViewImage} 
-            />
+            /> */}
         </div>
     )
 }
